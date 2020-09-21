@@ -1,0 +1,51 @@
+<%- include('partials/nav'); %>
+
+<div class="jumbotron jumbotron-fluid grad">
+  <div class="container">
+    <p class="lead text-white">Hello <%= user.name %></p>
+    <h2 class="display-4 text-white">Create a NOTE !</h2>
+    <a href="/notes/<%= user.email%>">ALL NOTES</a>
+  </div>
+</div>
+
+<div class="container py-4 shadow">
+  <form method="POST">
+    <div class="row">
+      <div class="col col-md-10 mx-auto">
+        <% include ./partials/messages %>
+
+        <div class="from-group">
+          <input type="hidden" name="email" value="<%= user.email%>">
+          <br />
+          <label class="text-dark"><h6>TITLE</h6></label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Title..."
+            name="title"
+            value="<%= typeof title != 'undefined' ? title : '' %>"
+          />
+        </div>
+        <br />
+        <div class="from-group">
+          <label class="text-dark"><h6>NOTE</h6></label>
+          <textarea
+            class="form-control"
+            name="note"
+            cols="30"
+            rows="5"
+            placeholder="Note..."
+          ><%= typeof note != 'undefined' ? note : '' %></textarea>
+        </div>
+        <br />
+        <div class="col col-md-8 mx-auto">
+          <input
+            type="submit"
+            name="Save"
+            class="btn grad btn-block text-white shadow"
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<%- include('partials/nav'); %>
+
+<div class="jumbotron jumbotron-fluid grad">
+  <div class="container">
+    <p class="lead text-white">Hello <%= user.name %></p>
+    <h2 class="display-4 text-white">All NOTES !</h2>
+    <a href="/dashboard/">Dashboard</a>
+
+  </div>
+</div>
+
+<div class="container py-4">
+  <div class="row">
+    <% if( docs.length > 0 ) { %> <% for ( var i=0 ; i < docs.length ; i++ ) {
+    %>
+
+    <div class="col col-md-3 mx-auto">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-header">
+          <%= docs[i].date %>
+          <div class="card-body">
+            <h4 class="card-title"><%= docs[i].title %></h4>
+            <p class="card-text"><%= docs[i].note %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% } %> <% } %>
+  </div>
+</div>
