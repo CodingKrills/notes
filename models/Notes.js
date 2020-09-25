@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const NotesSchema = new mongoose.Schema({
-  email: {
+  UUID: {
     type: String,
     required: true
   },

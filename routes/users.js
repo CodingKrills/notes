@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const { v4: uuidv4 } = require('uuid');
 // Load User model
 const User = require('../models/User');
 const { forwardAuthenticated } = require('../config/auth');
@@ -50,6 +51,7 @@ router.post('/register', (req, res) => {
         });
       } else {
         const newUser = new User({
+          UUID : uuidv4(),
           name,
           email,
           password

@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow fixed-top">
     <div class="container">
     <a class="navbar-brand" href="/">Notes <i class="fas fa-sticky-note"></i> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,7 +12,7 @@
           <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/notes/">All Notes</a>
+          <a class="nav-link" href="/notes/">My Notes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
@@ -28,9 +29,30 @@
          
         <% if (!user) { %>
         <a class="btn btn-secondary my-2 my-sm-0 grad" href="/users/login">Log In <i class="fas fa-sign-in-alt"></i></a>
+        <span class="text-white px-2">OR</span>
+        <a class="btn btn-secondary my-2 my-sm-0 grad" href="/users/register">Regsiter <i class="fas fa-sign-in-alt"></i></a>
         <%}%>
 
       </form>
     </div>
     </div>
   </nav>
+
+
+<div class="bav-mar"></div>
+
+<style>
+  .bav-mar{
+      margin-bottom: 5%;
+  }
+  @media only screen and (max-width: 600px) {
+  .bav-mar {
+    margin-bottom: 18%;
+  }
+}
+
+.black{
+  background-color: #222222;
+  color: #fff;
+}
+</style>

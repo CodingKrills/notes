@@ -8,7 +8,7 @@ const { ensureAuthenticated, forwardAuthenticated, isLoggedin } = require('../co
 
 router.post('/dashboard', ensureAuthenticated, isLoggedin, (req,res)=> {
 
-    const { title, note, email } = req.body;
+    const { title, note, UUID } = req.body;
 
 
     let errors = [];
@@ -23,8 +23,7 @@ router.post('/dashboard', ensureAuthenticated, isLoggedin, (req,res)=> {
             title,
             note,
             user: req.user,
-            errors,
-            email
+            errors
         })
 
     }
@@ -32,9 +31,9 @@ router.post('/dashboard', ensureAuthenticated, isLoggedin, (req,res)=> {
     else{
 
         const newNotes = new Notes({
+            UUID,
             title,
-            note,
-            email
+            note
         })
 
         newNotes.save().then(note=>{
@@ -51,30 +50,16 @@ router.post('/dashboard', ensureAuthenticated, isLoggedin, (req,res)=> {
 })
 
 
-// get all notes 
-
-// router.get('/notes', (req,res)=> {
+router.get('/notes/:UUID',ensureAuthenticated, isLoggedin, (req,res)=> {
     
-//     Notes.find({email: user.email},(err, docs)=> {
-//         if (err) console.log('ERR GET');
-//         else{
-//             res.render('notes',{docs: docs,user:req.body})
-//             //console.log(docs);
-//         }
-//     })
-
-// })
-
-router.get('/notes/:email',ensureAuthenticated, isLoggedin, (req,res)=> {
-    
-    Notes.find({email: req.params.email},(err, docs)=> {
+    Notes.find({UUID: req.params.UUID},(err, docs)=> {
         if (err) console.log('ERR GET');
         else{
 
             res.render('notes',{docs: docs,user:req.body})
             //console.log(docs);
         }
-    })
+    }).sort({date: -1})
 
 })
 

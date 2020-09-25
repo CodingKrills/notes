@@ -14,8 +14,8 @@
     <% if( docs.length > 0 ) { %> <% for ( var i=0 ; i < docs.length ; i++ ) {
     %>
 
-    <div class="col col-md-3 mx-auto">
-      <div class="card text-white bg-primary mb-3">
+    <div class="col col-md-6 mx-auto">
+      <div class="card text-white bg-primary mb-3 shadow">
         <div class="card-header">
           <%= docs[i].date %>
           <div class="card-body">
@@ -29,3 +29,6 @@
     <% } %> <% } %>
   </div>
 </div>
+
+
+<%- include('partials/footer'); %>

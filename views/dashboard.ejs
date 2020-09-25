@@ -4,18 +4,18 @@
   <div class="container">
     <p class="lead text-white">Hello <%= user.name %></p>
     <h2 class="display-4 text-white">Create a NOTE !</h2>
-    <a href="/notes/<%= user.email%>">ALL NOTES</a>
+    <a href="/notes/<%= user.UUID%>">ALL NOTES</a>
   </div>
 </div>
 
-<div class="container py-4 shadow">
+<div class="container py-4 shadow card">
   <form method="POST">
     <div class="row">
       <div class="col col-md-10 mx-auto">
         <% include ./partials/messages %>
 
         <div class="from-group">
-          <input type="hidden" name="email" value="<%= user.email%>">
+          <input type="hidden" name="UUID" value="<%= user.UUID%>">
           <br />
           <label class="text-dark"><h6>TITLE</h6></label>
           <input
@@ -49,3 +49,6 @@
     </div>
   </form>
 </div>
+
+
+<%- include('partials/footer'); %>
