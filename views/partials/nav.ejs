@@ -1,58 +1,62 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow fixed-top">
-    <div class="container">
-    <a class="navbar-brand" href="/">Notes <i class="fas fa-sticky-note"></i> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="container">
+    <a class="navbar-brand" href="/"
+      >Notes <i class="fas fa-sticky-note"></i>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarColor02"
+      aria-controls="navbarColor02"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav m-auto">
         <li class="nav-item active">
           <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/notes/">My Notes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="/users/login">My Notes</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-
         <% if(user) {%>
-        <a class="btn btn-secondary my-2 my-sm-0 grad" href="/users/logout">Log Out <i class="fas fa-sign-out-alt"></i></a>
-        <%}%>
-         
-        <% if (!user) { %>
-        <a class="btn btn-secondary my-2 my-sm-0 grad" href="/users/login">Log In <i class="fas fa-sign-in-alt"></i></a>
+        <a class="btn btn-secondary my-2 my-sm-0 grad" href="/users/logout"
+          >Log Out <i class="fas fa-sign-out-alt"></i
+        ></a>
+        <%}%> <% if (!user) { %>
+        <a class="btn btn-secondary my-2 my-sm-0 grad" href="/users/login"
+          >Log In <i class="fas fa-sign-in-alt"></i
+        ></a>
         <span class="text-white px-2">OR</span>
-        <a class="btn btn-secondary my-2 my-sm-0 grad" href="/users/register">Regsiter <i class="fas fa-sign-in-alt"></i></a>
+        <a class="btn btn-secondary my-2 my-sm-0 grad" href="/users/register"
+          >Regsiter <i class="fas fa-sign-in-alt"></i
+        ></a>
         <%}%>
-
       </form>
     </div>
-    </div>
-  </nav>
-
+  </div>
+</nav>
 
 <div class="bav-mar"></div>
 
 <style>
-  .bav-mar{
-      margin-bottom: 4%;
+  .bav-mar {
+    margin-bottom: 4%;
   }
   @media only screen and (max-width: 600px) {
-  .bav-mar {
-    margin-bottom: 12%;
+    .bav-mar {
+      margin-bottom: 12%;
+    }
   }
-}
 
-.black{
-  background-color: #222222;
-  color: #fff;
-}
+  .black {
+    background-color: #222222;
+    color: #fff;
+  }
 </style>

@@ -4,8 +4,9 @@
   <div class="container">
     <p class="lead text-white">Hello <%= user.name %></p>
     <h2 class="display-4 text-white">All NOTES !</h2>
-    <a href="/dashboard/">Dashboard</a>
-
+    <a class="btn btn-dark btn-lg shadow" href="/dashboard" role="button"
+      >Dashboard <i class="fas fa-plus"></i
+    ></a>
   </div>
 </div>
 
@@ -29,6 +30,5 @@
     <% } %> <% } %>
   </div>
 </div>
-
 
 <%- include('partials/footer'); %>

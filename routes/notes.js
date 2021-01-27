@@ -6,18 +6,18 @@ const Notes = require('../models/Notes');
 const { ensureAuthenticated, forwardAuthenticated, isLoggedin } = require('../config/auth');
 
 
-router.post('/dashboard', ensureAuthenticated, isLoggedin, (req,res)=> {
+router.post('/dashboard', ensureAuthenticated, isLoggedin, (req, res) => {
 
     const { title, note, UUID } = req.body;
 
 
     let errors = [];
 
-    if (!title || !note ) {
+    if (!title || !note) {
         errors.push({ msg: 'Please enter all fields' });
     }
-    
-    if(errors.length > 0 ){
+
+    if (errors.length > 0) {
 
         res.render('dashboard', {
             title,
@@ -28,7 +28,7 @@ router.post('/dashboard', ensureAuthenticated, isLoggedin, (req,res)=> {
 
     }
 
-    else{
+    else {
 
         const newNotes = new Notes({
             UUID,
@@ -36,13 +36,14 @@ router.post('/dashboard', ensureAuthenticated, isLoggedin, (req,res)=> {
             note
         })
 
-        newNotes.save().then(note=>{
+        newNotes.save().then(note => {
             req.flash(
                 'success_msg',
                 'Your Note Have Been Saved Succesfully !'
             )
             res.redirect('/dashboard')
-        }).catch(err => {console.log('ERROR');
+        }).catch(err => {
+            console.log('ERROR');
         })
 
     }
@@ -50,16 +51,16 @@ router.post('/dashboard', ensureAuthenticated, isLoggedin, (req,res)=> {
 })
 
 
-router.get('/notes/:UUID',ensureAuthenticated, isLoggedin, (req,res)=> {
-    
-    Notes.find({UUID: req.params.UUID},(err, docs)=> {
-        if (err) console.log('ERR GET');
-        else{
+router.get('/notes/:UUID', ensureAuthenticated, isLoggedin, (req, res) => {
 
-            res.render('notes',{docs: docs,user:req.body})
+    Notes.find({ UUID: req.params.UUID }, (err, docs) => {
+        if (err) console.log('ERR GET');
+        else {
+
+            res.render('notes', { docs: docs, user: req.body })
             //console.log(docs);
         }
-    }).sort({date: -1})
+    }).sort({ date: -1 })
 
 })
 

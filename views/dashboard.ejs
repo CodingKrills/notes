@@ -4,7 +4,14 @@
   <div class="container">
     <p class="lead text-white">Hello <%= user.name %></p>
     <h2 class="display-4 text-white">Create a NOTE !</h2>
-    <a href="/notes/<%= user.UUID%>">ALL NOTES</a>
+    <p class="lead">
+      <a
+        class="btn btn-dark btn-lg shadow"
+        href="/notes/<%= user.UUID%>"
+        role="button"
+        >All Notes <i class="fas fa-plus"></i
+      ></a>
+    </p>
   </div>
 </div>
 
@@ -15,7 +22,7 @@
         <% include ./partials/messages %>
 
         <div class="from-group">
-          <input type="hidden" name="UUID" value="<%= user.UUID%>">
+          <input type="hidden" name="UUID" value="<%= user.UUID%>" />
           <br />
           <label class="text-dark"><h6>TITLE</h6></label>
           <input
@@ -35,7 +42,9 @@
             cols="30"
             rows="5"
             placeholder="Note..."
-          ><%= typeof note != 'undefined' ? note : '' %></textarea>
+          >
+<%= typeof note != 'undefined' ? note : '' %></textarea
+          >
         </div>
         <br />
         <div class="col col-md-8 mx-auto">
@@ -49,6 +58,5 @@
     </div>
   </form>
 </div>
-
 
 <%- include('partials/footer'); %>

@@ -1,12 +1,14 @@
 <%- include('partials/nav'); %>
 
-<div style="margin-top: 20%;"></div>
+<div style="margin-top: 5em"></div>
 
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-6 m-auto">
       <div class="card card-body grad">
-        <h1 class="text-center mb-3 text-light"><i class="fas fa-sign-in-alt"></i>  Login</h1>
+        <h1 class="text-center mb-3 text-light">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </h1>
         <% include ./partials/messages %>
         <form action="/users/login" method="POST">
           <div class="form-group">
@@ -29,16 +31,17 @@
               placeholder="Enter Password"
             />
           </div>
-          <button type="submit" class="btn btn-dark btn-block shadow">Login</button>
+          <button type="submit" class="btn btn-dark btn-block shadow">
+            Login
+          </button>
         </form>
         <p class="lead mt-4 text-light">
-          No Account? <a class="text-dark" href="/users/register">Register Here</a>
+          No Account?
+          <a class="text-dark" href="/users/register">Register Here</a>
         </p>
       </div>
     </div>
   </div>
-  
 </div>
-
 
 <%- include('partials/footer'); %>
